@@ -42,7 +42,11 @@
   fileSystems."/" = {
     device = "/dev/mapper/cryptroot";
     fsType = "btrfs";
-    options = [ "subvol=root" ];
+    options = [
+      "subvol=root"
+      "compress=zstd"
+      "noatime"
+    ];
     neededForBoot = true;
   };
 
@@ -59,14 +63,22 @@
   fileSystems."/boot" = {
     device = "/dev/mapper/cryptroot";
     fsType = "btrfs";
-    options = [ "subvol=boot" ];
+    options = [
+      "subvol=boot"
+      "compress=zstd"
+      "noatime"
+    ];
     neededForBoot = true;
   };
 
   fileSystems."/persistent" = {
     device = "/dev/mapper/cryptroot";
     fsType = "btrfs";
-    options = [ "subvol=persistent" ];
+    options = [
+      "subvol=persistent"
+      "compress=zstd"
+      "noatime"
+    ];
     neededForBoot = true;
   };
 
