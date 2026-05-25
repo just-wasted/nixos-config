@@ -179,18 +179,6 @@
     useNautilus = true;
   };
 
-  # programs.git = {
-  #   enable = true;
-  #   config.user = {
-  #     name = "wasted";
-  #     email = "67445572+just-wasted@users.noreply.github.com ";
-  #     extraConfig = {
-  #       init.defaultBranch = "main";
-  #       safe.directory = "/etc/nixos";
-  #     };
-  #   };
-  # };
-
   environment.systemPackages = with pkgs; [
     (writeShellScriptBin "polkit-mate-authentication-agent-1" ''
       exec ${mate.mate-polkit}/libexec/polkit-mate-authentication-agent-1 "$@"
