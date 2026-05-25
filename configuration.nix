@@ -89,6 +89,8 @@
   # gnome virtual file system, for nautilus
   services.gvfs.enable = true;
 
+  services.avahi.enable = true;
+
   services.pipewire = {
     enable = true;
     pulse.enable = true;
