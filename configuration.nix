@@ -89,6 +89,8 @@
   # gnome virtual file system, for nautilus
   services.gvfs.enable = true;
 
+  services.gnome.gcr-ssh-agent.enable = false;
+
   services.avahi.enable = true;
 
   services.pipewire = {
@@ -172,7 +174,6 @@
 
   nixpkgs.config.allowUnfree = true;
 
-  services.gnome.gnome-keyring.enable = true;
   systemd.user.services.niri.enableDefaultPath = false;
 
   programs.niri = {
