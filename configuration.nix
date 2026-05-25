@@ -181,6 +181,8 @@
     useNautilus = true;
   };
 
+  programs.ssh.startAgent = false;
+
   environment.systemPackages = with pkgs; [
     (writeShellScriptBin "polkit-mate-authentication-agent-1" ''
       exec ${mate.mate-polkit}/libexec/polkit-mate-authentication-agent-1 "$@"
