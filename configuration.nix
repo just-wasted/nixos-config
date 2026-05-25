@@ -105,6 +105,11 @@
 
   services.avahi.enable = true;
 
+  services.mullvad-vpn = {
+    package = pkgs.mullvad-vpn;
+    enable = true;
+  };
+
   services.pipewire = {
     enable = true;
     pulse.enable = true;
