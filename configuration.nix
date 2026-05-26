@@ -110,7 +110,11 @@
 
   services.displayManager.sessionPackages = [ config.programs.niri.package ];
 
-  services.avahi.enable = true;
+  services.avahi = {
+    services.avahi.nssmdns4 = true;
+    services.avahi.nssmdns6 = true;
+    enable = true;
+  };
 
   services.mullvad-vpn = {
     package = pkgs.mullvad-vpn;
