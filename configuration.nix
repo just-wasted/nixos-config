@@ -95,6 +95,8 @@
     package = config.boot.kernelPackages.nvidiaPackages.beta;
   };
 
+  sound.enable = true;
+
   services.power-profiles-daemon.enable = true;
 
   security.polkit.enable = true;
@@ -111,8 +113,8 @@
   services.displayManager.sessionPackages = [ config.programs.niri.package ];
 
   services.avahi = {
-    services.avahi.nssmdns4 = true;
-    services.avahi.nssmdns6 = true;
+    nssmdns4 = true;
+    nssmdns6 = true;
     enable = true;
   };
 
