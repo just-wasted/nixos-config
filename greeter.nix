@@ -22,8 +22,8 @@ in
         user = "greeter";
         command = ''
           ${lib.getExe pkgs.tuigreet} -r \
-                    --remember-session --asterisks \
-                    --sessions ${sessionDir}/wayland-sessions'';
+                    --remember-session --time --asterisks \
+                    --sessions ${sessionDir}/wayland-sessions:${sessionDir}/xsessions'';
       };
     };
   };

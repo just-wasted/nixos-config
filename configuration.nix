@@ -104,6 +104,10 @@
 
   services.gnome.gcr-ssh-agent.enable = false;
 
+  services.displayManager.enable = true;
+
+  services.displayManager.sessionPackages = [ config.programs.niri.package ];
+
   services.avahi.enable = true;
 
   services.mullvad-vpn = {
@@ -138,8 +142,10 @@
   console = {
     font = "Lat2-Terminus16";
     keyMap = "de";
-    # useXkbConfig = true;
+    earlySetup = true;
   };
+
+  systemd.services.systemd-vconsole-setup.unitConfig.After = "local-fs.target";
 
   users.mutableUsers = false;
 
