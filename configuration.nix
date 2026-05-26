@@ -99,6 +99,8 @@
 
   security.polkit.enable = true;
 
+  security.rtkit.enable = true;
+
   # gnome virtual file system, for nautilus
   services.gvfs.enable = true;
 
@@ -117,6 +119,8 @@
 
   services.pipewire = {
     enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
     pulse.enable = true;
   };
 
