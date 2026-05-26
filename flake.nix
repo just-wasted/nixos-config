@@ -9,9 +9,14 @@
       url = "github:nix-community/lanzaboote/v1.0.0";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
     home-manager = {
       url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    nix-flatpak = {
+      url = "github:gmodena/nix-flatpak/?ref=latest";
     };
   };
 
@@ -20,6 +25,7 @@
       self,
       nixpkgs,
       nixpkgs-unstable,
+      nix-flatpak,
       home-manager,
       lanzaboote,
       ...
@@ -45,8 +51,10 @@
 
         modules = [
 
+          nix-flatpak.nixosModules.nix-flatpak
           ./configuration.nix
           ./greeter.nix
+          ./flatpaks.nix
 
           home-manager.nixosModules.home-manager
           {
@@ -54,7 +62,9 @@
             home-manager.users.wasted =
               { pkgs, ... }:
               {
-                imports = [ ./home.nix ];
+                imports = [
+                  ./home.nix
+                ];
               };
           }
 

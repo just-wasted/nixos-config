@@ -121,6 +121,8 @@
     enable = true;
   };
 
+  services.flatpak.enable = true;
+
   services.pipewire = {
     enable = true;
     alsa.enable = true;
@@ -251,8 +253,6 @@
     gst_all_1.gst-plugins-good
     gst_all_1.gstreamer
     git
-    gtk3
-    gtk4
     htop
     libinput
     lua-language-server
@@ -260,6 +260,7 @@
     neovim
     nixfmt
     nwg-look
+    pavucontrol
     python3
     kdePackages.qt6ct
     sbctl
