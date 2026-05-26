@@ -11,4 +11,8 @@
       safe.directory = "/etc/nixos";
     };
   };
+
+  home.packages = with pkgs; [
+    steam
+  ];
 }

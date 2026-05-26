@@ -50,7 +50,7 @@
     neededForBoot = true;
   };
 
-  fileSystems."/boot/efi" = lib.mkDefault {
+  fileSystems."/boot/efi" = lib.mkForce {
     device = "/dev/nvme0n1p1";
     fsType = "vfat";
     options = [
@@ -84,6 +84,7 @@
 
   hardware.graphics = {
     enable = true;
+    enable32Bit = true;
   };
 
   hardware.nvidia = {
@@ -148,7 +149,10 @@
 
   users.users.wasted = {
     isNormalUser = true;
-    extraGroups = [ "wheel" ];
+    extraGroups = [
+      "wheel"
+      "gamemode"
+    ];
     hashedPasswordFile = "/persistent/passwords/wasted";
     shell = pkgs.zsh;
   };
@@ -157,11 +161,15 @@
 
   environment.shells = with pkgs; [ zsh ];
 
+  programs.gamemode.enable = true;
+
   programs.zsh = {
     enable = true;
     enableCompletion = true;
     autosuggestions.enable = true;
     syntaxHighlighting.enable = true;
+
+    interactiveShellInit = "source ${pkgs.zsh-nix-shell}/share/zsh-nix-shell/nix-shell.plugin.zsh";
 
     shellAliases = {
       ll = "ls -l";
@@ -241,6 +249,7 @@
     python3
     kdePackages.qt6ct
     sbctl
+    s-tui
     tmux
     tree-sitter
     tuigreet
