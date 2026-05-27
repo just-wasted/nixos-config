@@ -277,6 +277,7 @@
     xdg-terminal-exec
     xdg-user-dirs
     xdg-utils
+    xsettingsd
     zip
     zoxide
     pkgs-unstable.foot

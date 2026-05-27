@@ -15,4 +15,17 @@
   home.packages = with pkgs; [
     steam
   ];
+
+  home.pointerCursor = {
+    gtk.enable = true;
+    x11.enable = true;
+    package = pkgs.vanilla-dmz;
+    name = "DMZ-Black";
+    size = 32;
+  };
+
+  home.sessionVariables = {
+    GTK_THEME = "adw-gtk3-dark";
+    GTK_ENABLE_DARK_MODE = "1";
+  };
 }

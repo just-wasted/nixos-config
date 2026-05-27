@@ -58,6 +58,7 @@
 
           home-manager.nixosModules.home-manager
           {
+            home-manager.backupFileExtension = "BAK";
             home-manager.useGlobalPkgs = true;
             home-manager.users.wasted =
               { pkgs, ... }:
