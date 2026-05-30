@@ -217,6 +217,8 @@
 
   systemd.user.services.niri.enableDefaultPath = false;
 
+  programs.dconf.enable = true;
+
   programs.niri = {
     enable = true;
     package = pkgs-unstable.niri;
@@ -230,10 +232,9 @@
       exec ${mate.mate-polkit}/libexec/polkit-mate-authentication-agent-1 "$@"
     '')
     adwaita-icon-theme
-    adw-gtk3
     alacritty
     bat
-    dconf
+    cargo
     dconf-editor
     efibootmgr
     envsubst
@@ -257,7 +258,8 @@
     libinput
     lua-language-server
     nautilus
-    neovim
+    # neovim
+    nil
     nixfmt
     nwg-look
     pavucontrol
@@ -265,9 +267,11 @@
     kdePackages.qt6ct
     sbctl
     s-tui
+    stylua
     tmux
     tree-sitter
     tuigreet
+    unzip
     uv
     vim
     wget
